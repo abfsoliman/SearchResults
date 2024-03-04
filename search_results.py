@@ -11,10 +11,8 @@ req.raise_for_status()
 soup = bs4.BeautifulSoup(req.text,'html.parser')
 
 linkelems = soup.select('.package-snippet')
-print(len(linkelems))
+
 numopen = min(5, len(linkelems))
-#print(linkelems[1].get('href'))
-#webbrowser.open(linkelems[1].get('href'))
 
 for i in range(numopen):    
     urlopen = 'https://pypi.org'+linkelems[i].get('href')
